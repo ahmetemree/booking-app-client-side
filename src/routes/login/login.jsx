@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import Info from "../../components/notification/Info";
 import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
-import apiRequest from "../../../../api/lib/apiRequest";
+import apiRequest from "../../lib/apiRequest";
 import { notifications } from "@mantine/notifications";
 import { AuthContext } from "../../context/AuthContext";
 function Login() {

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
 import { useState } from "react";
 import { notifications } from '@mantine/notifications';
-import apiRequest from "../../../../api/lib/apiRequest";
+import apiRequest from "../../lib/apiRequest";
 
 
 function Register() {

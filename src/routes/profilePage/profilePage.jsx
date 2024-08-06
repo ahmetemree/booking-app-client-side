@@ -1,7 +1,7 @@
 import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
 import "./profilePage.scss";
-import apiRequest from "../../../../api/lib/apiRequest";
+import apiRequest from "../../lib/apiRequest";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { notifications } from "@mantine/notifications";
 import { AuthContext } from "../../context/AuthContext";
@@ -56,7 +56,9 @@ function ProfilePage() {
           </div>
           <div className="title">
             <h1>My List</h1>
+            <Link to="/add">
             <button>Create New Post</button>
+            </Link>
           </div>
           <List />
           <div className="title">

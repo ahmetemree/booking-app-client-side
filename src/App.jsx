@@ -6,6 +6,7 @@ import {
 import ListPage from "./routes/listPage/listPage";
 import SinglePage from "./routes/singlePage/singlePage";
 import ProfilePage from "./routes/profilePage/profilePage";
+import NewPostPage from "./routes/newPostPage/newPostPage.jsx";
 import Login from "./routes/login/login";
 import Register from "./routes/register/register";
 import { createTheme, MantineProvider } from "@mantine/core";
@@ -15,6 +16,7 @@ import { Notifications } from "@mantine/notifications";
 import { AuthContextProvider } from "./context/AuthContext";
 import {Layout, RequireAuth} from "./routes/layout/layout";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage";
+import { listPageLoader, singlePageLoader } from "./lib/loaders";
 const theme = createTheme({
   /** Your theme override here */
 });
@@ -32,11 +34,13 @@ function App() {
         },
         {
           path:"/list",
-          element:<ListPage/>
+          element:<ListPage/>,
+          loader:listPageLoader,
         },
         {
           path:"/:id",
-          element:<SinglePage/>
+          element:<SinglePage/>,
+          loader:singlePageLoader,
         },
         
         {
@@ -60,6 +64,10 @@ function App() {
         {
           path:"/profile/update",
           element:<ProfileUpdatePage/>,
+        },
+        {
+          path:"/add",
+          element:<NewPostPage/>,
         },
       ],
     },
