@@ -8,6 +8,8 @@ export const AuthContextProvider = ({children})=>{
         JSON.parse(localStorage.getItem("user")) || null
     );
 
+    const [lastData, setLastData] = useState()
+
     const updateUser =(data)=>{
 setCurrentUser(data);
     }
@@ -16,6 +18,6 @@ setCurrentUser(data);
         localStorage.setItem("user",JSON.stringify(currentUser))
     },[currentUser])
     return(
-        <AuthContext.Provider value={{updateUser, currentUser}}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value={{updateUser, currentUser,setLastData,lastData}}>{children}</AuthContext.Provider>
     )
 }
