@@ -9,9 +9,9 @@ function Map({ items }) {
     items && items.length > 0 ? (
       <MapContainer 
         center={
-          items.length === 1 
-          ? [items[0].latitude, items[0].longitude] 
-          : [items[0].latitude, items[0].longitude]
+          
+        [items[0].latitude, items[0].longitude] 
+          
         } 
         zoom={11} 
         scrollWheelZoom={false} 

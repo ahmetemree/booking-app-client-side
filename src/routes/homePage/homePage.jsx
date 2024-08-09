@@ -13,10 +13,10 @@ function HomePage() {
         <div className="wrapper">
           <h1 className="title">Find Real Estate & Get Your Dream Place</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-            explicabo suscipit cum eius, iure est nulla animi consequatur
-            facilis id pariatur fugit quos laudantium temporibus dolor ea
-            repellat provident impedit!
+            You can choose filter places that you want to stay in below. 
+            <br></br>
+            <br></br>
+            Where do you want to stay {currentUser?.username} ?
           </p>
           <SearchBar />
           <div className="boxes">

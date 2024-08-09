@@ -65,6 +65,8 @@ function Filter() {
             id="minPrice"
             name="minPrice"
             placeholder="any"
+            onChange={handleChange}
+            defaultValue={query.minPrice}
           />
         </div>
         <div className="item">
@@ -74,6 +76,8 @@ function Filter() {
             id="maxPrice"
             name="maxPrice"
             placeholder="any"
+            onChange={handleChange}
+            defaultValue={query.maxPrice}
           />
         </div>
         <div className="item">
@@ -83,6 +87,8 @@ function Filter() {
             id="bedroom"
             name="bedroom"
             placeholder="any"
+            onChange={handleChange}
+            defaultValue={query.bedroom}
           />
         </div>
         <button onClick={handleFilter}>

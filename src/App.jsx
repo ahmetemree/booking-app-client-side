@@ -16,7 +16,7 @@ import { Notifications } from "@mantine/notifications";
 import { AuthContextProvider } from "./context/AuthContext";
 import {Layout, RequireAuth} from "./routes/layout/layout";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage";
-import { listPageLoader, singlePageLoader } from "./lib/loaders";
+import { listPageLoader, profilePageLoader, singlePageLoader } from "./lib/loaders";
 const theme = createTheme({
   /** Your theme override here */
 });
@@ -60,6 +60,7 @@ function App() {
         {
           path:"/profile",
           element:<ProfilePage/>,
+          loader:profilePageLoader
         },
         {
           path:"/profile/update",

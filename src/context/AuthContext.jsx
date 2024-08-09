@@ -11,7 +11,7 @@ export const AuthContextProvider = ({children})=>{
     const [lastData, setLastData] = useState()
 
     const updateUser =(data)=>{
-setCurrentUser(data);
+        setCurrentUser(data);
     }
 
     useEffect(()=>{
