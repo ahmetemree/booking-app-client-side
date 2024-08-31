@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./chat.scss";
 import { AuthContext } from "../../context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
@@ -10,6 +10,14 @@ function Chat({chats}) {
   const {currentUser} = useContext(AuthContext)
   const {socket} = useContext(SocketContext)
   const [isClicked, setIsClicked] = useState(false)
+
+  const messageEndRef = useRef()
+
+  useEffect(()=>{
+    messageEndRef.current?.scrollIntoView({behavior:"smooth"});
+  },[chat]);
+
+
   const handleOpenChat = async (id,receiver) =>{
     try{
       setIsClicked(true);
@@ -67,13 +75,7 @@ function Chat({chats}) {
       socket.off("getMessage");
     };
   },[socket,chat]);
-function Scroll() {
-    const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
-      offset: 60,
-    });
-  
-    
-  }
+
 
   return (
     <div className="chat">
@@ -121,9 +123,11 @@ function Scroll() {
             </div>
 
             ))}
+
+            <div ref={messageEndRef}></div>
           </div>
           <form onSubmit={handleSubmit} className="bottom">
-            <textarea name="text"></textarea>
+            <textarea name="text" onKeyDown={handleKeyDown}></textarea>
             <button>Send</button>
           </form>
         </div>
@@ -131,5 +135,12 @@ function Scroll() {
     </div>
   );
 }
+const handleKeyDown = e => {
+  // Eğer Enter tuşuna basıldıysa ve Shift tuşu basılı değilse
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault(); // Varsayılan Enter tuşu davranışını engelle
+    e.target.form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+  }
+};
 
 export default Chat;
